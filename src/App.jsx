@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Sidebar from './components/SideBar';
 import Customers from './views/Customers';
 import Proveedores from './views/Proveedores';
+import Ventas from './views/Ventas';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
             <Routes>
               <Route path="/clientes" element={<Customers />} />
               <Route path="/proveedores" element={<Proveedores />} />
+              <Route path="/ventas" element={<Ventas />} />
             </Routes>
           </main>
         </div>

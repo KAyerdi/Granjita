@@ -1,52 +1,61 @@
 // Ventas.jsx
 import React, { useState } from 'react';
-import Button from '@mui/material/Button';
+import VentasTable from '../components/VentasTable';
+import VentasForm from '../components/VentasForm';
 import VentasModal from '../components/VentasModal';
-import AgregarVentaModal from '../components/AgregarVentaModal';
+import { Container, Button } from '@mui/material';
 
 const Ventas = () => {
   const [ventas, setVentas] = useState([]);
-  const [isVentasModalOpen, setIsVentasModalOpen] = useState(false);
-  const [isAgregarVentaModalOpen, setIsAgregarVentaModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   const handleAgregarVenta = (nuevaVenta) => {
     setVentas([...ventas, nuevaVenta]);
-    setIsAgregarVentaModalOpen(false);
+    setIsFormOpen(false);
   };
 
-  const handleOpenVentasModal = () => {
-    setIsVentasModalOpen(true);
+  const handleOpenForm = () => {
+    setIsFormOpen(true);
   };
 
-  const handleCloseVentasModal = () => {
-    setIsVentasModalOpen(false);
+  const handleCloseForm = () => {
+    setIsFormOpen(false);
   };
 
-  const handleOpenAgregarVentaModal = () => {
-    setIsAgregarVentaModalOpen(true);
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
   };
 
-  const handleCloseAgregarVentaModal = () => {
-    setIsAgregarVentaModalOpen(false);
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
-    <div>
-      <Button variant="contained" color="primary" onClick={handleOpenVentasModal}>
-        VENTAS
-      </Button>
-      <VentasModal
-        isOpen={isVentasModalOpen}
-        onClose={handleCloseVentasModal}
-        ventas={ventas}
-        onAgregarVenta={handleOpenAgregarVentaModal}
-      />
-      <AgregarVentaModal
-        isOpen={isAgregarVentaModalOpen}
-        onClose={handleCloseAgregarVentaModal}
-        onAgregarVenta={handleAgregarVenta}
-      />
-    </div>
+    <Container>
+      <main>
+        <Button variant="contained" onClick={handleOpenModal}>
+          VENTAS
+        </Button>
+        {isModalOpen && (
+          <VentasModal isOpen={isModalOpen} onClose={handleCloseModal}>
+            <VentasTable ventas={ventas} />
+            <div className="mt-4 flex gap-4">
+              <Button variant="contained" color="primary" onClick={handleOpenForm}>AGREGAR</Button>
+              <Button variant="contained" color="primary">BORRAR</Button>
+              <Button variant="contained" color="primary" onClick={handleCloseModal}>SALIR</Button>
+            </div>
+          </VentasModal>
+        )}
+        {isFormOpen && (
+          <VentasForm 
+            isOpen={isFormOpen} 
+            onClose={handleCloseForm} 
+            onAgregarVenta={handleAgregarVenta} 
+          />
+        )}
+      </main>
+    </Container>
   );
 };
 

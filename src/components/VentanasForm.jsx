@@ -1,13 +1,8 @@
-// AgregarVentaModal.jsx
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
-import TextField from '@mui/material/TextField';
+// VentasForm.jsx
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material';
 import React, { useState } from 'react';
 
-const AgregarVentaModal = ({ isOpen, onClose, onAgregarVenta }) => {
+const VentasForm = ({ isOpen, onClose, onAgregarVenta }) => {
   const [venta, setVenta] = useState({
     numeroVenta: Date.now().toString(),
     nombre: '',
@@ -51,4 +46,4 @@ const AgregarVentaModal = ({ isOpen, onClose, onAgregarVenta }) => {
   );
 };
 
-export default AgregarVentaModal;
+export default VentasForm;
