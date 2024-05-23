@@ -3,6 +3,7 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Sidebar from './components/SideBar';
 import Customers from './views/Customers';
+import Main from './views/Main';
 import Proveedores from './views/Proveedores';
 import Ventas from './views/Ventas';
 
@@ -15,6 +16,7 @@ const App = () => {
           <Sidebar />
           <main className="flex-1 p-4">
             <Routes>
+              <Route path="/" element={<Main />} />
               <Route path="/clientes" element={<Customers />} />
               <Route path="/proveedores" element={<Proveedores />} />
               <Route path="/ventas" element={<Ventas />} />
