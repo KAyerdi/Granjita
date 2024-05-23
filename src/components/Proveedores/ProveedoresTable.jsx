@@ -6,7 +6,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import React from 'react';
 
-const ProveedoreTable = ({ proveedores, deleteProveedor, updateProveedor }) => {
+const ProveedoresTable = ({ proveedores, deleteProveedor, updateProveedor }) => {
   return (
     <Table>
       <TableHead>
@@ -42,4 +42,4 @@ const ProveedoreTable = ({ proveedores, deleteProveedor, updateProveedor }) => {
   );
 };
 
-export default ProveedoreTable;
+export default ProveedoresTable;

@@ -4,7 +4,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import React from 'react';
-import CustomerTable from './CustomerTable'; // Asume que ya tienes un componente CustomerTable
+import CustomerTable from './CustomerTable';
 
 const CustomerModal = ({ isOpen, onClose, customers }) => {
   return (

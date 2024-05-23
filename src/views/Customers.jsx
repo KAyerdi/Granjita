@@ -1,7 +1,7 @@
 import Button from '@mui/material/Button';
 import React, { useState } from 'react';
-import CustomerForm from '../components/CustomerForm';
-import CustomerTable from '../components/CustomerTable';
+import CustomerForm from '../components/Customers/CustomerForm';
+import CustomerTable from '../components/Customers/CustomerTable';
 
 const Customers = () => {
   const [customers, setCustomers] = useState([]);

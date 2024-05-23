@@ -1,7 +1,7 @@
 import Button from '@mui/material/Button';
 import React, { useState } from 'react';
-import ProveedoresForm from '../components/ProveedoresForm';
-import ProveedoresTable from '../components/ProveedoresTable';
+import ProveedoresForm from '../components/Proveedores/ProveedoresForm';
+import ProveedoresTable from '../components/Proveedores/ProveedoresTable';
 
 const Proveedores = () => {
   const [proveedores, setProveedores] = useState([]);
