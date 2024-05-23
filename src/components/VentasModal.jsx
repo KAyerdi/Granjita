@@ -1,6 +1,6 @@
 // VentasModal.jsx
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
 import React from 'react';
-import { Dialog, DialogActions, DialogContent, DialogTitle, Button } from '@mui/material';
 
 const VentasModal = ({ isOpen, onClose, children }) => {
   return (

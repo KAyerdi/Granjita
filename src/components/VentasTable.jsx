@@ -1,37 +1,69 @@
-// VentasTable.jsx
-import React from 'react';
-import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
+import { Button } from '@mui/material';
+import React, { useState } from 'react';
+import VentasForm from './VentasForm';
 
-const VentasTable = ({ ventas }) => {
+const VentasTable = ({ ventas, addVenta }) => {
+  const [showForm, setShowForm] = useState(false);
+
+  const handleOpenForm = () => {
+    setShowForm(true);
+  };
+
+  const handleCloseForm = () => {
+    setShowForm(false);
+  };
+
+  const handleAgregarVenta = (nuevaVenta) => {
+    addVenta(nuevaVenta);
+    setShowForm(false);
+  };
+
   return (
-    <Table>
-      <TableHead>
-        <TableRow>
-          <TableCell>Fecha</TableCell>
-          <TableCell>Número de Venta</TableCell>
-          <TableCell>Código</TableCell>
-          <TableCell>Apellido y Nombre</TableCell>
-          <TableCell>Cantidad de Maples</TableCell>
-          <TableCell>Cantidad de Docenas</TableCell>
-          <TableCell>Precio Unitario</TableCell>
-          <TableCell>Importe</TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {ventas.map((venta, index) => (
-          <TableRow key={index}>
-            <TableCell>{venta.fecha}</TableCell>
-            <TableCell>{venta.numeroVenta}</TableCell>
-            <TableCell>{venta.codigo}</TableCell>
-            <TableCell>{venta.nombre}</TableCell>
-            <TableCell>{venta.cantidadMaples}</TableCell>
-            <TableCell>{venta.cantidadDocenas}</TableCell>
-            <TableCell>{venta.precioUnitario}</TableCell>
-            <TableCell>{venta.importe}</TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Número de Venta</th>
+            <th>Código</th>
+            <th>Apellido y Nombre</th>
+            <th>Cantidad de Maples</th>
+            <th>Cantidad de Docenas</th>
+            <th>Precio Unitario</th>
+            <th>Importe</th>
+          </tr>
+        </thead>
+        <tbody>
+          {ventas.map((venta, index) => (
+            <tr key={index}>
+              <td>{venta.fecha}</td>
+              <td>{venta.numeroVenta}</td>
+              <td>{venta.codigo}</td>
+              <td>{venta.nombre}</td>
+              <td>{venta.cantidadMaples}</td>
+              <td>{venta.cantidadDocenas}</td>
+              <td>{venta.precioUnitario}</td>
+              <td>{venta.importe}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <Button variant="contained" onClick={handleOpenForm}>AGREGAR</Button>
+      {showForm && (
+        <div style={{
+          position: 'fixed',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          backgroundColor: 'white',
+          padding: '20px',
+          borderRadius: '5px',
+        }}>
+          <VentasForm addVenta={handleAgregarVenta} />
+          <Button variant="contained" onClick={handleCloseForm}>CANCELAR</Button>
+        </div>
+      )}
+    </div>
   );
 };
 
