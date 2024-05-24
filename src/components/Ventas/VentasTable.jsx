@@ -7,6 +7,24 @@ import TableRow from '@mui/material/TableRow';
 import React from 'react';
 
 const VentasTable = ({ ventas, deleteVenta, updateVenta }) => {
+  const [selectedVenta, setSelectedVenta] = React.useState(null);
+
+  const handleSelectVenta = (venta) => {
+    setSelectedVenta(venta);
+  };
+
+  const handleUpdateVenta = () => {
+    // Lógica para manejar la acción de modificar la venta seleccionada
+    if (selectedVenta) {
+      updateVenta(selectedVenta);
+    }
+  };
+
+  const handleDeleteVenta = (code) => {
+    // Lógica para manejar la acción de borrar una venta
+    deleteVenta(code);
+  };
+
   return (
     <Table>
       <TableHead>
@@ -23,7 +41,11 @@ const VentasTable = ({ ventas, deleteVenta, updateVenta }) => {
       </TableHead>
       <TableBody>
         {ventas.map((venta) => (
-          <TableRow key={venta.code}>
+          <TableRow
+            key={venta.code}
+            onClick={() => handleSelectVenta(venta)}
+            selected={selectedVenta && selectedVenta.code === venta.code}
+          >
             <TableCell>{venta.code}</TableCell>
             <TableCell>{venta.name}</TableCell>
             <TableCell>{venta.address}</TableCell>
@@ -32,8 +54,24 @@ const VentasTable = ({ ventas, deleteVenta, updateVenta }) => {
             <TableCell>{venta.cuit}</TableCell>
             <TableCell>{venta.balance}</TableCell>
             <TableCell>
-              <Button variant="contained" color="primary" onClick={() => updateVenta(venta)}>Modificar</Button>
-              <Button variant="contained" color="secondary" onClick={() => deleteVenta(venta.code)}>Borrar</Button>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => handleUpdateVenta()}
+                disabled={!selectedVenta}
+              >
+                Modificar
+              </Button>
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleDeleteVenta(venta.code);
+                }}
+              >
+                Borrar
+              </Button>
             </TableCell>
           </TableRow>
         ))}
