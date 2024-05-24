@@ -2,10 +2,14 @@ import React from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Sidebar from './components/SideBar';
+import Compras from './views/Compras';
 import Customers from './views/Customers';
 import Main from './views/Main';
+import Movimientos from './views/Movimientos';
+import Pagos from './views/Pagos';
 import Proveedores from './views/Proveedores';
 import Ventas from './views/Ventas';
+
 
 const App = () => {
   return (
@@ -20,6 +24,9 @@ const App = () => {
               <Route path="/clientes" element={<Customers />} />
               <Route path="/proveedores" element={<Proveedores />} />
               <Route path="/ventas" element={<Ventas />} />
+              <Route path="/compras" element={<Compras />} />
+              <Route path="/pagos" element={<Pagos />} />
+              <Route path="/movimientos" element={<Movimientos />} />
             </Routes>
           </main>
         </div>
