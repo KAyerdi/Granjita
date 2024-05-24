@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
 import { Button } from '@mui/material';
-import MovimientosTable from '../components/Movimientos/MovimientosTable';
+import React, { useState } from 'react';
 import MovimientosModal from '../components/Movimientos/MovimientosModal'; // Asumiendo que tienes un componente Modal para los Movimientos
+import MovimientosTable from '../components/Movimientos/MovimientosTable';
 
 const Movimientos = () => {
   const [movimientos, setMovimientos] = useState([]);
@@ -26,13 +26,9 @@ const Movimientos = () => {
   };
 
   return (
-    <div className="p-4">
-      <h2 className="text-xl font-bold mb-4">Movimientos</h2>
-      <div className="mb-4">
-        <Button variant="contained" color="primary" onClick={() => setShowModal(true)}>
-          Agregar Movimiento
-        </Button>
-      </div>
+    <div className='p-4'>
+      <h2 className='text-xl font-bold mb-4'>Movimientos</h2>
+      <div className='mb-4'></div>
       <MovimientosTable
         movimientos={movimientos}
         deleteMovimiento={deleteMovimiento}
@@ -43,6 +39,13 @@ const Movimientos = () => {
         onClose={() => setShowModal(false)}
         addMovimiento={addMovimiento}
       />
+      <Button
+        variant='contained'
+        color='primary'
+        onClick={() => setShowModal(true)}
+      >
+        Agregar Movimiento
+      </Button>
     </div>
   );
 };

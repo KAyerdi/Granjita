@@ -8,6 +8,7 @@ import Main from './views/Main';
 import Movimientos from './views/Movimientos';
 import Pagos from './views/Pagos';
 import Proveedores from './views/Proveedores';
+import Stock from './views/Stock';
 import Ventas from './views/Ventas';
 
 
@@ -27,6 +28,7 @@ const App = () => {
               <Route path="/compras" element={<Compras />} />
               <Route path="/pagos" element={<Pagos />} />
               <Route path="/movimientos" element={<Movimientos />} />
+              <Route path="/stock" element={<Stock />} />
             </Routes>
           </main>
         </div>

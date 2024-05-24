@@ -54,7 +54,7 @@ const Sidebar = () => {
                   <Link to="/pagos" className="text-blue-500 hover:underline">Pagos</Link>
                 </li>
                 <li>
-                  <Link to="/movimientos" className="text-blue-500 hover:underline">Resumen de Movimientos</Link>
+                  <Link to="/movimientos" className="text-blue-500 hover:underline">Movimientos</Link>
                 </li>
                 <li>
                   <Link to="/stock" className="text-blue-500 hover:underline">Stock</Link>
