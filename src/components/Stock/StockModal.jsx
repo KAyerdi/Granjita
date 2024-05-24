@@ -9,7 +9,7 @@ const StockModal = ({ isOpen, onClose, stockItems, handleAdd, handleEdit, handle
       <DialogContent>
         <StockTable stockItems={stockItems} deleteStock={handleDelete} updateStock={handleEdit} />
       </DialogContent>
-      <DialogActions>
+      <DialogActions className="flex justify-center space-x-2">
         <Button variant="contained" onClick={handleAdd}>Agregar</Button>
         <Button variant="contained" onClick={handleEdit} disabled={!stockItems || !stockItems.length}>Modificar</Button>
         <Button variant="contained" onClick={handleDelete} disabled={!stockItems || !stockItems.length}>Borrar</Button>
